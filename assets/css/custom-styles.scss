@@ -1,0 +1,73 @@
+---
+---
+
+$spacers: (
+  0:                      0,
+  1:                      .25rem,
+  2:                      .5rem,
+  3:                      1rem,
+  4:                      1.5rem,
+  5:                      3rem
+);
+
+/* start custom scss snippet */
+.title {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    .info {
+        font-weight: normal;
+        font-size: 1.2rem;
+    }
+}
+
+body {
+    p {
+        text-align: justify;
+    }
+}
+
+.d-print-none {
+    @media print {
+      display: none !important;
+    }
+  }
+  
+
+.extensions {
+    margin: map-get($spacers, 3) 0;
+    @extend .d-print-none;
+  }
+  
+  .extensions--video, .extensions--slide, .extensions--demo {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    & > iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .extensions--video {
+    padding-top: percentage(315 / 560);
+  }
+  
+  .extensions--slide {
+    padding-top: percentage(487 / 599);
+  }
+  
+  .extensions--demo {
+    min-height: 340px;
+    padding-top: percentage(315 / 560);
+  }
+  
+  .extensions--audio {
+    display: block;
+    max-width: 100% !important;
+  }

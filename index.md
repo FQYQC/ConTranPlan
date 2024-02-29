@@ -25,7 +25,7 @@ subtitle: Learning Concept-Based Visual Causal Transition and Symbolic Reasoning
   <span class="link-block" style="text-align: center; display: block; margin: 0 10px;">
     <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
       <span class="icon">
-        <i class="far fa-database"></i>
+        <i class="fa fa-database"></i>
       </span>
       <span>Dataset (Comming Soon)</span>
     </a>

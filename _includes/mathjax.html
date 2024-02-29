@@ -1,0 +1,12 @@
+<script type="text/x-mathjax-config">
+	var _config = { tex2jax: {
+		inlineMath: [['$','$'], ['\\(','\\)']]
+	}};
+	{% if page.mathjax_autonumber == true %}
+		_config.TeX = { equationNumbers: { autoNumber: "all" } };
+	{% endif %}
+	MathJax.Hub.Config(_config);
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>

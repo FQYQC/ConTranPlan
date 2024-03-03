@@ -45,7 +45,7 @@ subtitle: Learning Concept-Based Visual Causal Transition and Symbolic Reasoning
 
 ![](assets/img/1.png)
 
-Visual planning simulates how humans make decisions to achieve desired goals in the form of searching for visual causal transitions between an initial visual state and a final visual goal state. It has become increasingly important in egocentric vision with its advantages in guiding agents to perform daily tasks in complex environments. In this paper, we propose an interpretable and generalizable visual planning framework consisting of i) a novel Substitution-based Concept Learner (**SCL**) that abstracts visual inputs into disentangled concept representations, ii) symbol abstraction and reasoning that performs task planning via the self-learned symbols, and iii) a Visual Causal Transition model (**ViCT**) that grounds visual causal transitions to semantically similar real-world actions. Given an initial state, we perform goal-conditioned visual planning with a symbolic reasoning method fueled by the learned representations and causal transitions to reach the goal state. To verify the effectiveness of the proposed model, we collect a large-scale visual planning dataset based on AI2-THOR, dubbed as *CCTP*. Extensive experiments on this challenging dataset demonstrate the superior performance of our method in visual task planning. Empirically, we show that our framework can generalize to unseen task trajectories and unseen object categories.
+Visual planning simulates how humans make decisions to achieve desired goals in the form of searching for visual causal transitions between an initial visual state and a final visual goal state. It has become increasingly important in egocentric vision with its advantages in guiding agents to perform daily tasks in complex environments. In this paper, we propose an interpretable and generalizable visual planning framework consisting of **i)** a novel Substitution-based Concept Learner (**SCL**) that abstracts visual inputs into disentangled concept representations, **ii)** symbol abstraction and reasoning that performs task planning via the self-learned symbols, and **iii)** a Visual Causal Transition model (**ViCT**) that grounds visual causal transitions to semantically similar real-world actions. Given an initial state, we perform goal-conditioned visual planning with a symbolic reasoning method fueled by the learned representations and causal transitions to reach the goal state. To verify the effectiveness of the proposed model, we collect a large-scale visual planning dataset based on AI2-THOR, dubbed as *CCTP*. Extensive experiments on this challenging dataset demonstrate the superior performance of our method in visual task planning. Empirically, we show that our framework can generalize to unseen task trajectories and unseen object categories.
 
 
 <hr>
@@ -58,30 +58,69 @@ Visual planning simulates how humans make decisions to achieve desired goals in 
 
 <hr>
 
-## Dataset
-<!-- ### Visualization of the ambiguous actions in BioLab. -->
+## Framework
 
-<!-- <div class="card bg-light border-light mb-3">
-    <img class="card-img lazyload" data-src="assets/img/dataset.gif" />
+### Substitution-based Concept Learner (SCL)
+
+<div class="card bg-light border-light mb-3">
+    <img class="card-img lazyload" data-src="assets/img/concept_learning.png" />
     <div class="card-body">
-      <h5 class="card-title">Figure 1. Visualization of the ambiguous actions in BioLab.</h5>
+      <h5 class="card-title">Figure 1. Architecture of SCL.</h5>
     </div>
 </div>
 
+
+
+### Symbol Abstraction and Reasoning
+
 <div class="card bg-light border-light mb-3">
-    <img class="card-img lazyload" data-src="assets/img/dataset.png" />
+    <img class="card-img lazyload" data-src="assets/img/symbol_reasoning.png" />
     <div class="card-body">
-      <h5 class="card-title">Figure 2. Part-to-whole & Ambigutiy distribution.</h5>
+      <h5 class="card-title">Figure 2. Symbol Abstraction and Reasoning.</h5>
     </div>
-</div> -->
+</div>
+
+### Visual Causal Transition Learning (ViCT)
+
+<div class="card bg-light border-light mb-3">
+    <img class="card-img lazyload" data-src="assets/img/causal_transition.png" />
+    <div class="card-body">
+      <h5 class="card-title">Figure 3. Architecture of ViCT.</h5>
+    </div>
+</div>
+
+## Dataset
+
+To facilitate the learning and evaluation of the concept-
+based visual planning task, we collect a large-scale RGB-D
+image sequence dataset named CCTP (Concept-based Causal
+Transition Planning) based on AI2-THOR simulator.
+We exclude scene transitions in each task by design to
+focus more on concept and causal transition learning, i.e.,
+each task is performed on a fixed workbench, although the
+workbenches and scenes vary from task to task. The whole dataset consists
+of a concept learning dataset and a visual causal planning
+dataset.
+
+
+<!-- ### Visualization of the ambiguous actions in BioLab. -->
+
+
 
 <hr>
 
 ### Concept Revision Demo
 
+<div class="card bg-light border-light mb-3">
+    <img class="card-img lazyload" data-src="assets/img/figure_4_updated.png" />
+    <div class="card-body">
+      <h5 class="card-title">Figure 4. Fine-grained attribute level concept manipulation.</h5>
+    </div>
+</div>
+
 ## Download
 
-Our dataset is distributed under the [CC BY-NC-SA (Attribution-NonCommercial-ShareAlike)](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. You can download our dataset from [Link here]().
+Our dataset is distributed under the [CC BY-NC-SA (Attribution-NonCommercial-ShareAlike)](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. You can download our dataset from [Link here (Coming Soon)]().
 
 <hr>
 

@@ -112,7 +112,7 @@ dataset.
 ### Concept Revision Demo
 
 <div class="card bg-light border-light mb-3">
-    <img class="card-img lazyload" data-src="assets/img/figure_4_updated.png" />
+    <img class="card-img lazyload" data-src="assets/img/fig_4_updated.png" />
     <div class="card-body">
       <h5 class="card-title">Figure 4. Fine-grained attribute level concept manipulation.</h5>
     </div>

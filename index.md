@@ -43,7 +43,6 @@ subtitle: Learning Concept-Based Causal Transition and Symbolic Reasoning for Vi
 <!-- Github link -->
 
 <br>
-
 ![](assets/img/motivation_fig.png)
 
 Visual planning simulates how humans make decisions to achieve desired goals in the form of searching for visual causal transitions between an initial visual state and a final visual goal state. It has become increasingly important in egocentric vision with its advantages in guiding agents to perform daily tasks in complex environments. In this paper, we propose an interpretable and generalizable visual planning framework consisting of **i)** a novel Substitution-based Concept Learner (**SCL**) that abstracts visual inputs into disentangled concept representations, **ii)** symbol abstraction and reasoning that performs task planning via the self-learned symbols, and **iii)** a Visual Causal Transition model (**ViCT**) that grounds visual causal transitions to semantically similar real-world actions. Given an initial state, we perform goal-conditioned visual planning with a symbolic reasoning method fueled by the learned representations and causal transitions to reach the goal state. To verify the effectiveness of the proposed model, we collect a large-scale visual planning dataset based on AI2-THOR, dubbed as *CCTP*. Extensive experiments on this challenging dataset demonstrate the superior performance of our method in visual task planning. Empirically, we show that our framework can generalize to unseen task trajectories, unseen object categories, and real-world data. Further details of this work are provided at `https://fqyqc.github.io/ConTranPlan/`.
@@ -119,9 +118,9 @@ dataset.
     </div>
 </div>
 
-## Download
+<!-- ## Download
 
-Our dataset is distributed under the [CC BY-NC-SA (Attribution-NonCommercial-ShareAlike)](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. You can download our dataset from [Link here (Coming Soon)]().
+Our dataset is distributed under the [CC BY-NC-SA (Attribution-NonCommercial-ShareAlike)](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. You can download our dataset from [Link here (Coming Soon)](). -->
 
 <hr>
 

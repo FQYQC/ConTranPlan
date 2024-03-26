@@ -89,6 +89,42 @@ Visual planning simulates how humans make decisions to achieve desired goals in 
     </div>
 </div>
 
+
+### Model Implementation Details
+
+#### Substitution-based concept learner
+For $256\times256$ images, the encoder transforms them into $8\times8$ with 64 channels by a sequence of networks: 3 convolutional layers and 2 residual blocks, followed by another 4 convolutional layers and 2 residual blocks. The decoder involves 4 transposed convolutional layers and 2 residual blocks, followed by another 3 transposed convolutional layers and 2 residual blocks.
+We use the architecture in VCT as our concept tokenizer and detokenizer. The concept number is set to $6$.
+
+#### Symbol reasoning and visual causal transition
+In the causal transition model, the action is initially embedded into a 64-dimensional vector, which is then concatenated with six separate 64-dimensional concept vectors. Following this, a four-layer MLP is applied for each concatenated vector to predict the six affected concept vectors.
+
+The symbol-level transition model logs all the (input, action, output) triplets in the training data. It forecasts the probability distribution for all six affected concepts when provided with the input concept symbol and the action.
+
+In the visual extraction process, the background encoder involves 3 convolutional layers and 2 residual blocks, transforming background images into $64\times 64$ latent vectors with 64 channels. The background decoder involves two decoding modules and a transition module. The first decoding module has 4 convolutional layers and 2 residual blocks, decoding the front latent vectors into $64\times64$ with 64 channels. Then the transition module is applied, involving 3 convolutional layers and 3 transposed convolutional layers, converting the concatenated front and background vectors into the transitioned background latent vectors, which are $64\times64$ with 64 channels. After that, the transitioned background latent vectors are concatenated with the front latent vectors again, being fed into the second decoder module, which involves 3 transposed convolutional layers and 2 residual blocks and decodes the vectors into effect images.
+
+During training, all models are optimized by Adam, with the start learning rate $10^{-5}$ for concept tokenizer and detokenizer and $3\times10^{-4}$ for the rest models. We train our SCL for 180 epochs and our ViCT model for 70 epochs on a single NVIDIA RTX 3090 GPU.
+
+
+
+#### Baselines
+
+**Reasoning applied on the continuous domains**
+
+In the generalization tests, we introduced two baselines that involve a reasoning process within continuous vectors. The "w/o. symbol" method employs our trained causal transition model to explore the action space, aiming to discover the action sequence that transforms the concept tokens closest to the goal state. The distance between concept tokens is measured using the l2-norm. Similarly, a causal transition model based on image vectors is trained for the "w/o. concept" method in later experiments. One significant drawback of these methods is that defining action validity becomes challenging. This implies that these methods might predict action sequences that move the target object outside the workbench, resulting in vectors that the transition model cannot comprehend.
+
+**Reinforcement Learning**
+
+A goal-conditioned Double DQN agent is trained with prioritized experience replay to choose actions, taking the concept symbols of the current state and goal state given by our concept learner as inputs. We use our symbolic reasoning model to mimic the learning environment for the agent. The symbolic reasoning model applies the chosen action to the concept symbols and returns the concept symbols of the next state for the agent. The agent gets a reward of 1 only if the current concept symbols are equal to the goal state's symbols.
+
+**PlaTe** 
+
+PlaTe is a Transformer-based planning method that simultaneously learns an action predictor based on current and goal state features and a state predictor based on the predicted action and state features. We follow the official implementation of PlaTe and use a pre-trained ResNet-50 to extract 1024-d features of images of the target object, dyer, and obstacles separately as the input state features. We use the features of one image frame as one state. The model is trained without parameter tuning for 500 epochs on dataset *CCTP*.
+
+**VCT**
+
+VCT is an unsupervised method to extract disentangled concepts from simple images. We trained a VCT model with our image encoder and decoder architectures on our concept dataset. It is capable of reconstructing the images well but fails to achieve disentanglement. 
+
 ## Dataset
 
 To facilitate the learning and evaluation of the concept-

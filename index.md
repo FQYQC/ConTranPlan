@@ -154,5 +154,12 @@ During training, all models are optimized by Adam, with the start learning rate 
 ## Citation
 
 ```bibtex
-
+@misc{qian2024learning,
+  title={Learning Concept-Based Causal Transition and Symbolic Reasoning for Visual Planning}, 
+  author={Yilue Qian and Peiyu Yu and Ying Nian Wu and Yao Su and Wei Wang and Lifeng Fan},
+  year={2024},
+  eprint={2310.03325},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI}
+}
 ```

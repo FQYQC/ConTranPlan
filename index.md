@@ -94,15 +94,18 @@ Visual planning simulates how humans make decisions to achieve desired goals in 
 
 To facilitate the learning and evaluation of the concept-
 based visual planning task, we collect a large-scale RGB-D
-image sequence dataset named CCTP (Concept-based Causal
+image sequence dataset named *CCTP* (Concept-based Causal
 Transition Planning) based on AI2-THOR simulator.
 We exclude scene transitions in each task by design to
-focus more on concept and causal transition learning, i.e.,
+focus more on concept and causal transition learning, *i.e.*,
 each task is performed on a fixed workbench, although the
 workbenches and scenes vary from task to task. The whole dataset consists
 of a concept learning dataset and a visual causal planning
 dataset.
 
+### Real-world Data Obtained from Intel Realsense
+
+We collected real-world data using the Intel RealSense D455 with the following procedure. Firstly, the RGB-D frames captured by RealSense D455 were clipped and resized to match the dimensions used by CCTP, with the depth channel further normalized to align with the AI2-THOR simulator. Then, target-object masks were manually annotated and provided. For real-world tests, we focused only on evaluating the model's ASAcc, thus requiring only the correct paths as ground truth. It is notable that noise is unavoidable throughout this process, which further demonstrates our framework's robustness in noisy environments.
 
 <!-- ### Visualization of the ambiguous actions in BioLab. -->
 

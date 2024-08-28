@@ -103,9 +103,9 @@ workbenches and scenes vary from task to task. The whole dataset consists
 of a concept learning dataset and a visual causal planning
 dataset.
 
-### Real-world Data Obtained from Intel Realsense
+### Real-world Data
 
-We collected real-world data using the Intel RealSense D455 with the following procedure. Firstly, the RGB-D frames captured by RealSense D455 were clipped and resized to match the dimensions used by CCTP, with the depth channel further normalized to align with the AI2-THOR simulator. Then, target-object masks were manually annotated and provided. For real-world tests, we focused only on evaluating the model's ASAcc, thus requiring only the correct paths as ground truth. It is notable that noise is unavoidable throughout this process, which further demonstrates our framework's robustness in noisy environments.
+We also collected a set of real-world data using the Intel RealSense D455 with the following procedure. Firstly, the RGB-D frames captured by RealSense D455 were clipped and resized to match the dimensions used by CCTP, with the depth channel further normalized to align with the AI2-THOR simulator. Then, target-object masks were manually annotated and provided. For real-world tests, we focused only on evaluating the model's ASAcc, thus requiring only the correct paths as ground truth. It is notable that noise is unavoidable throughout this process, which further demonstrates our framework's robustness in noisy environments.
 
 <!-- ### Visualization of the ambiguous actions in BioLab. -->
 
